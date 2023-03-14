@@ -54,7 +54,7 @@ function SignUp() {
      }
 
   return (
-    <main className='flex justify-between items-center bg-[#654330] text-white'>
+    <main className='hidden lg:flex justify-between items-center bg-[#654330] text-white'>
         {/* This Page has two sections, a form and an image. */}
 
         {/* Form */}

@@ -39,7 +39,7 @@ function SignIn() {
                 theme: "light",
                 });
                 setTimeout(() => {
-                    navigate("/app");
+                    navigate("/app/dashboard");
                   }, 3000);
          }catch(err){
             toast.error(`${err}`, {
@@ -55,7 +55,7 @@ function SignIn() {
          }
      }
   return (
-    <main className='flex justify-between items-center bg-[#654330] text-white'>
+    <main className='hidden lg:flex justify-between items-center bg-[#654330] text-white'>
         {/* This Page has two sections, a form and an image. */}
 
         {/* Form */}

@@ -1,14 +1,14 @@
 import React from 'react'
 
-function Dashboard() {
+function TenantList() {
   return (
     <main className='pl-[15%] w-screen h-screen'>
       <section className='p-5 w-full h-full'>
-          <h1 className='uppercase tracking-widest'>Dashboard</h1>
+          <h1 className='uppercase tracking-widest'>Tenants</h1>
           <hr className='mb-5'/>
       </section>
     </main>
   )
 }
 
-export default Dashboard
+export default TenantList

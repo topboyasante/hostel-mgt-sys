@@ -9,7 +9,7 @@ function ProtectedRoutes() {
   
   return (
     JSON.parse(localStorage.getItem("user"))?
-    <main>
+    <main className='hidden lg:block'>
         <Navbar/>
         <Outlet/>
     </main>

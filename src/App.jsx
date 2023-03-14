@@ -10,10 +10,14 @@ import ProtectedRoutes from './routing/ProtectedRoutes'
 
 //Firebase
 import {auth} from './assets/config/FirebaseConfig'
-import Dashboard from './assets/pages/app/Dashboard'
 
 //AppContext
 import {AppContext} from './assets/context/AppContext'
+
+//Page Sections
+import Dashboard from './assets/pages/app/Dashboard'
+import Rooms from './assets/pages/app/Rooms'
+import TenantList from './assets/pages/app/TenantList'
 
 function App() {
   const [currentUser,setCurrentUser] = useState(null)
@@ -26,7 +30,9 @@ function App() {
           <Route path='login' element={<SignIn/>}/>
 
           <Route path='app' element={<ProtectedRoutes></ProtectedRoutes>}>
-            <Route index element={<Dashboard/>}/>
+            <Route path='dashboard' element={<Dashboard/>}/>
+            <Route path='rooms' element={<Rooms/>}/>
+            <Route path='tenants' element={<TenantList/>}/>
           </Route>
         </Routes>
       </main>
