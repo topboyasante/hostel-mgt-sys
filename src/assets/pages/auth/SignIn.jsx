@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 //Firebase Authentication
@@ -27,6 +27,7 @@ function SignIn() {
          try{
             resetFields()
              await signInWithEmailAndPassword(auth,email,password)
+             localStorage.setItem("user",JSON.stringify(auth.currentUser))
              toast.success('Successfully Signed In! You will be Redirected to the Dashboard.', {
                 position: "top-right",
                 autoClose: 3000,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 //Page Components
@@ -12,19 +12,25 @@ import ProtectedRoutes from './routing/ProtectedRoutes'
 import {auth} from './assets/config/FirebaseConfig'
 import Dashboard from './assets/pages/app/Dashboard'
 
-function App() {
-  return (
-    <main>
-      <Routes>
-        <Route path='/' element={<LandingPage/>}/>
-        <Route path='register' element={<SignUp/>}/>
-        <Route path='login' element={<SignIn/>}/>
+//AppContext
+import {AppContext} from './assets/context/AppContext'
 
-        <Route path='app' element={<ProtectedRoutes></ProtectedRoutes>}>
-          <Route index element={<Dashboard/>}/>
-        </Route>
-      </Routes>
-    </main>
+function App() {
+  const [currentUser,setCurrentUser] = useState(null)
+  return (
+    <AppContext.Provider value={{currentUser,setCurrentUser}}>
+        <main>
+        <Routes>
+          <Route path='/' element={<LandingPage/>}/>
+          <Route path='register' element={<SignUp/>}/>
+          <Route path='login' element={<SignIn/>}/>
+
+          <Route path='app' element={<ProtectedRoutes></ProtectedRoutes>}>
+            <Route index element={<Dashboard/>}/>
+          </Route>
+        </Routes>
+      </main>
+    </AppContext.Provider>
   )
 }
 

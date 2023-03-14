@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Outlet, Navigate } from 'react-router-dom'
 import Navbar from '../assets/components/navigation/Navbar'
 import { auth } from '../assets/config/FirebaseConfig'
+import { AppContext } from '../assets/context/AppContext'
 
 function ProtectedRoutes() {
-  useEffect(()=>{
-    
-  })
+  const {currentUser}= useContext(AppContext)
+  
   return (
-    auth?
+    JSON.parse(localStorage.getItem("user"))?
     <main>
         <Navbar/>
         <Outlet/>
